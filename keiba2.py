@@ -1,5 +1,6 @@
 import pandas as pd
 import time
+from tqdm import tqdm
 
 #始め4桁:20xx年 今回は2020
 #中2桁: 開催都市　01;札幌 02;函館 03;福島 04;新潟 05;東京 06;中山 07;中京 08;京都 09;阪神 10;小倉
@@ -9,8 +10,8 @@ import time
 
 def scrape_race_results(race_id_list):
     race_result = {}
-    for race_id in race_id_list:
-        url = "https://db.netkeiba.com/race/" + race_id
+    for race_id in tqdm(race_id_list):
+        url = "https://db.netkeiba.com/race/"+ race_id
         race_result[race_id] = pd.read_html(url)[0]
         time.sleep(1)
 

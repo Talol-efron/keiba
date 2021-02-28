@@ -1,5 +1,6 @@
 import pandas as pd
 import time
+from tqdm import tqdm
 
 ######小規模テスト用######
 
@@ -12,7 +13,7 @@ import time
 
 def scrape_race_results(race_id_list):
     race_result = {}
-    for race_id in race_id_list:
+    for race_id in tqdm(race_id_list):
         url = "https://db.netkeiba.com/race/" + race_id
         race_result[race_id] = pd.read_html(url)[0]
         time.sleep(1)
