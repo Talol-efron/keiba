@@ -11,9 +11,12 @@ from tqdm import tqdm
 def scrape_race_results(race_id_list):
     race_result = {}
     for race_id in tqdm(race_id_list):
-        url = "https://db.netkeiba.com/race/"+ race_id
-        race_result[race_id] = pd.read_html(url)[0]
-        time.sleep(1)
+        try:
+            url = "https://db.netkeiba.com/race/"+ race_id
+            race_result[race_id] = pd.read_html(url)[0]
+            time.sleep(1)
+        except:
+            break
 
     return race_result
 
@@ -64,5 +67,5 @@ def search_race_id():
 
     return race_list
 
-test = scrape_race_results(search_race_id())
-print(test)
+#test = scrape_race_results(search_race_id())
+#print(test)

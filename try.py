@@ -1,6 +1,8 @@
 import pandas as pd
 import time
 from tqdm import tqdm
+from bs4 import BeautifulSoup
+import csv
 
 ######小規模テスト用######
 
@@ -17,6 +19,13 @@ def scrape_race_results(race_id_list):
         url = "https://db.netkeiba.com/race/" + race_id
         race_result[race_id] = pd.read_html(url)[0]
         time.sleep(1)
+    
+    #with open('/Users/taro/beginner_python/keiba/attempt.csv', 'w') as file:
+        #f = csv.DictWriter(file, ['202002010102', '202001010102', '202001010101', '202002010101'])
+        #f.writerow(race_result)
+    
+    df = pd.json_normalize(race_result)
+    df.to_csv('/Users/taro/beginner_python/keiba/attempt.csv')
 
     return race_result
 
@@ -31,9 +40,9 @@ def scrape_race_results(race_id_list):
 
 race_list = []
 citeis = ["1", "2"]
-times = ["1", "2"]
-days = ["1", "2"]
-rounds = ["1", "2", "3"]
+times = ["1"]
+days = ["1"]
+rounds = ["1", "2",]
 
 
 def search_race_id():
@@ -65,4 +74,4 @@ def search_race_id():
 
 
 test = scrape_race_results(search_race_id())
-print(test)
+#print(test)
