@@ -24,17 +24,14 @@ def scrape_race_results(race_id_list):
         #f = csv.DictWriter(file, ['202002010102', '202001010102', '202001010101', '202002010101'])
         #f.writerow(race_result)
     
+    #dict型をjson_normalze()でDatarame型へ
     df = pd.json_normalize(race_result)
-    df.to_csv('/Users/taro/beginner_python/keiba/attempt.csv')
+    
+    #attempt.csv
+    df.to_csv('/Users/taro/beginner_python/keiba/attempt.csv',index=False)
 
     return race_result
 
-
-#race_id_list = ["202001010101", "202001010102", "202001010103"]
-
-#test = scrape_race_results(race_id_list)
-
-#print(test)
 
 ##race_id_listをネットからとってきて全部scrape_race_results で表す
 
@@ -48,19 +45,10 @@ rounds = ["1", "2",]
 def search_race_id():
     year = "2020"
     for city in citeis:
-        #year = "2020" + city.zfill(2)
-        #race_list.append(year)
-
         for time in times:
-            #year = year + time.zfill(2)
-            #race_list.append(year)
             year = year[:-2]
-
             for day in days:
-                #year = "2020" + city.zfill(2) + time.zfill(2) + day.zfill(2)
-                #race_list.append(year)
                 year = year[:-2]
-
                 for round in rounds:
                     year = "2020" + \
                         city.zfill(2) + time.zfill(2) + \

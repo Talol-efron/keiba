@@ -21,17 +21,7 @@ def scrape_race_results(race_id_list):
     return race_result
 
 
-#race_id_list = ["202001010101", "202001010102", "202001010103"]
-
-#test = scrape_race_results(race_id_list)
-
-#print(test)
-
 ##race_id_listをネットからとってきて全部scrape_race_results で表す
-
-#race_list = []
-#str_citeis = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-#times = 5
 
 race_list = []
 citeis = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -43,19 +33,10 @@ rounds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
 def search_race_id():
     year = "2020"
     for city in citeis:
-        #year = "2020" + city.zfill(2)
-        #race_list.append(year)
-
         for time in times:
-            #year = year + time.zfill(2)
-            #race_list.append(year)
             year = year[:-2]
-
             for day in days:
-                #year = "2020" + city.zfill(2) + time.zfill(2) + day.zfill(2)
-                #race_list.append(year)
                 year = year[:-2]
-
                 for round in rounds:
                     year = "2020" + \
                         city.zfill(2) + time.zfill(2) + \
