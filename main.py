@@ -28,23 +28,24 @@ def scrape_race_results(race_id_list):
     df = pd.json_normalize(race_result)
     
     #attempt.csv
-    df.to_csv('/Users/taro/beginner_python/keiba/attempt.csv',index=False)
+    df.to_csv('/Users/taro/Practice/python/keiba/attempt.csv',index=False)
 
     return race_result
 
 
 ##race_id_listをネットからとってきて全部scrape_race_results で表す
 
+#ここのcities, times, days, roundsを変更させると任意のレース結果が習得できる
 race_list = []
-citeis = ["1", "2"]
+cities = ["1","3"]
 times = ["1"]
 days = ["1"]
-rounds = ["1", "2",]
+rounds = ["1"]
 
-
+#path(URL)作成
 def search_race_id():
     year = "2020"
-    for city in citeis:
+    for city in cities:
         for time in times:
             year = year[:-2]
             for day in days:

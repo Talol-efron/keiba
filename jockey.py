@@ -22,5 +22,5 @@ dfs2 = pd.read_html(url2)
 df2 = dfs2[0]
 #df2["騎手"].to_csv('/Users/taro/beginner_python/keiba/hoge.csv', index=False)
 df_all = pd.concat([df1,df2],axis=1)
-df_all["騎手"].to_csv('/Users/taro/beginner_python/keiba/hoge.csv', index=False)
+df_all["騎手"].to_csv('/Users/taro/Practice/python/keiba/jockey.csv', index=False)
 
